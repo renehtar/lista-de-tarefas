@@ -58,16 +58,18 @@ const handleClick = taskContent => {
 
 // deletar tarefa
 const handleDeleteClick = (taskItemContainer, taskContent) => {
-  const tasks = tasksContainer.childNodes
-  
-  for (const task of tasks) {
-    const currentTaskIsBeingClicked = task.firstChild.isSameNode(taskContent)
+  if(confirm('Tem certeza que deseja deletar esta tarefa?') == true) {
+    console.log(confirm)
+    const tasks = tasksContainer.childNodes
+    
+    for (const task of tasks) {
+      const currentTaskIsBeingClicked = task.firstChild.isSameNode(taskContent)
 
-    if (currentTaskIsBeingClicked) {
-      taskItemContainer.remove()
+      if (currentTaskIsBeingClicked) {
+        taskItemContainer.remove()
+      }
     }
   }
-
   updateLocalStorage()
 }
 // fim deletar tarefa
